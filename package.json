@@ -2,10 +2,13 @@
   "name": "node-typescript-boilerplate",
   "version": "1.0.0",
   "description": "NodeJS TypeScript Boilerplate",
-  "main": "src/dist/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "node dist/index.js",
-    "build": "rimraf ./dist && tsc",
+    "dev": "tsc-watch --onSuccess \"node dist/index.js\"",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "build:clean": "rimraf ./dist && tsc",
     "lint": "npm run prettier && npm run eslint",
     "lint:fix": "npm run prettier:fix && npm run eslint:fix",
     "prettier": "npx prettier --check src/**/*.ts",
@@ -36,6 +39,7 @@
     "lint-staged": "^13.2.2",
     "prettier": "^2.8.8",
     "rimraf": "^5.0.0",
+    "tsc-watch": "^6.0.4",
     "typescript": "^5.0.4"
   },
   "dependencies": {
